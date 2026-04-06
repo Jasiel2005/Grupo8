@@ -5,6 +5,7 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
 
 public class V1 extends JFrame {
 
@@ -36,7 +37,11 @@ public class V1 extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("PRUEBA");
+		lblNewLabel.setBounds(10, 10, 44, 12);
+		contentPane.add(lblNewLabel);
 
 	}
-
 }
