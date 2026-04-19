@@ -12,7 +12,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 
-public class V1 extends JFrame {
+public class V1 extends JFrame implements ActionListener {
 
     private static final long serialVersionUID = 1L;
     private JPanel contentPane;
@@ -126,6 +126,7 @@ public class V1 extends JFrame {
         }
         {
             btnModificar = new JButton("Modificar");
+            btnModificar.addActionListener(this);
             btnModificar.setBounds(207, 28, 84, 20);
             contentPane.add(btnModificar);
         }
@@ -140,4 +141,21 @@ public class V1 extends JFrame {
             contentPane.add(textArea);
         }
     }
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btnModificar) {
+			do_btnModificar_actionPerformed(e);
+		}
+	}
+	protected void do_btnModificar_actionPerformed(ActionEvent e) {
+		textArea.setText("");
+		String id = txtId.getText();
+		String prod = txtProd.getText();
+    	String desc   = txtProd.getText().trim();
+		String precio = txtPrec.getText();
+		String stock = txtStock.getText();
+
+		textArea.append("ID: " + id + " | Producto: " + desc +
+                " | Precio: " + precio + " | Stock: " + stock + "\n");
+
+	}
 }
