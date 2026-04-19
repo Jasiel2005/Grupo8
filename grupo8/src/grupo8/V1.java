@@ -9,8 +9,10 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JTextArea;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
-public class V1 extends JFrame {
+public class V1 extends JFrame implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
@@ -25,7 +27,8 @@ public class V1 extends JFrame {
 	private JButton btnInsertar;
 	private JButton btnModificar;
 	private JButton btnEliminar;
-	private JTextArea textArea;
+	private JTextArea txtRes;
+	private JLabel lblNewLabel_4;
 
 	/**
 	 * Launch the application.
@@ -104,6 +107,7 @@ public class V1 extends JFrame {
 		}
 		{
 			btnModificar = new JButton("Modificar");
+			btnModificar.addActionListener(this);
 			btnModificar.setBounds(207, 28, 84, 20);
 			contentPane.add(btnModificar);
 		}
@@ -113,10 +117,23 @@ public class V1 extends JFrame {
 			contentPane.add(btnEliminar);
 		}
 		{
-			textArea = new JTextArea();
-			textArea.setBounds(21, 110, 405, 143);
-			contentPane.add(textArea);
+			txtRes = new JTextArea();
+			txtRes.setBounds(21, 110, 405, 143);
+			contentPane.add(txtRes);
+		}
+		{
+			lblNewLabel_4 = new JLabel("eclipse");
+			lblNewLabel_4.setBounds(197, 79, 44, 12);
+			contentPane.add(lblNewLabel_4);
 		}
 
+	}
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btnModificar) {
+			do_btnModificar_actionPerformed(e);
+		}
+	}
+	protected void do_btnModificar_actionPerformed(ActionEvent e) {
+		
 	}
 }
