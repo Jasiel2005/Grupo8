@@ -132,6 +132,7 @@ public class V1 extends JFrame implements ActionListener {
         }
         {
             btnEliminar = new JButton("Eliminar");
+            btnEliminar.addActionListener(this);
             btnEliminar.setBounds(207, 50, 84, 20);
             contentPane.add(btnEliminar);
         }
@@ -142,6 +143,9 @@ public class V1 extends JFrame implements ActionListener {
         }
     }
 	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btnEliminar) {
+			do_btnEliminar_actionPerformed(e);
+		}
 		if (e.getSource() == btnModificar) {
 			do_btnModificar_actionPerformed(e);
 		}
@@ -157,5 +161,38 @@ public class V1 extends JFrame implements ActionListener {
 		textArea.append("ID: " + id + " | Producto: " + desc +
                 " | Precio: " + precio + " | Stock: " + stock + "\n");
 
+	}
+	protected void do_btnEliminar_actionPerformed(ActionEvent e){
+	    try {
+	        int idEliminar = Integer.parseInt(txtId.getText().trim());
+
+	        boolean eliminado = false;
+	        for (int i = 0; i < lista.size(); i++) {
+	            if (lista.get(i).getId() == idEliminar) {
+	                lista.remove(i);
+	                eliminado = true;
+	                break;
+	            }
+	        }
+
+	        
+	        textArea.setText("");
+
+	        
+	        for (Productos p : lista) {
+	            textArea.append("ID: " + p.getId() + " | Producto: " + p.getDescripcion() +
+	                            " | Precio: " + p.getPrecio() + " | Stock: " + p.getStock() + "\n");
+	        }
+
+	        
+	        txtId.setText("");
+
+	        if (!eliminado) {
+	            textArea.setText("No se encontró un producto con el ID: " + idEliminar);
+	        }
+
+	    } catch (NumberFormatException ex) {
+	        textArea.setText("Error: El ID debe ser numérico.");
+	    }
 	}
 }
