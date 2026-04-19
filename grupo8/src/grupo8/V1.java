@@ -11,6 +11,7 @@ import javax.swing.JButton;
 import javax.swing.JTextArea;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.util.ArrayList;
 
 public class V1 extends JFrame implements ActionListener {
 
@@ -28,8 +29,7 @@ public class V1 extends JFrame implements ActionListener {
 	private JButton btnModificar;
 	private JButton btnEliminar;
 	private JTextArea txtRes;
-	private JLabel lblNewLabel_4;
-
+	private ArrayList<Productos> lista = new ArrayList<>();
 	/**
 	 * Launch the application.
 	 */
@@ -102,6 +102,7 @@ public class V1 extends JFrame implements ActionListener {
 		}
 		{
 			btnInsertar = new JButton("Insertar");
+			btnInsertar.addActionListener(this);
 			btnInsertar.setBounds(207, 6, 84, 20);
 			contentPane.add(btnInsertar);
 		}
@@ -121,14 +122,12 @@ public class V1 extends JFrame implements ActionListener {
 			txtRes.setBounds(21, 110, 405, 143);
 			contentPane.add(txtRes);
 		}
-		{
-			lblNewLabel_4 = new JLabel("eclipse");
-			lblNewLabel_4.setBounds(197, 79, 44, 12);
-			contentPane.add(lblNewLabel_4);
-		}
 
 	}
 	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btnInsertar) {
+			do_btnInsertar_actionPerformed(e);
+		}
 		if (e.getSource() == btnModificar) {
 			do_btnModificar_actionPerformed(e);
 		}
@@ -136,4 +135,26 @@ public class V1 extends JFrame implements ActionListener {
 	protected void do_btnModificar_actionPerformed(ActionEvent e) {
 		
 	}
+	protected void do_btnInsertar_actionPerformed(ActionEvent e) {
+            try {
+                int id        = Integer.parseInt(txtId.getText().trim());
+                String desc   = txtProd.getText().trim();
+                double precio = Double.parseDouble(txtPrec.getText().trim());
+                int stock     = Integer.parseInt(txtStock.getText().trim());
+
+                Productos p = new Productos(id, stock, precio, desc);
+                lista.add(p);
+
+                txtRes.append("ID: " + id + " | Producto: " + desc +
+                                " | Precio: " + precio + " | Stock: " + stock + "\n");
+
+                txtId.setText("");
+                txtProd.setText("");
+                txtPrec.setText("");
+                txtStock.setText("");
+
+            } catch (NumberFormatException ex) {
+            	txtRes.setText("Error: ID, Precio y Stock deben ser numéricos.");
+            }
+        }
 }
