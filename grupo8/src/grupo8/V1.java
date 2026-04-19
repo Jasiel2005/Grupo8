@@ -30,6 +30,7 @@ public class V1 extends JFrame implements ActionListener {
 	private JButton btnEliminar;
 	private JTextArea txtRes;
 	private ArrayList<Productos> lista = new ArrayList<>();
+
 	/**
 	 * Launch the application.
 	 */
@@ -143,8 +144,8 @@ public class V1 extends JFrame implements ActionListener {
                 int stock     = Integer.parseInt(txtStock.getText().trim());
 
                 Productos p = new Productos(id, stock, precio, desc);
-                lista.add(p);
 
+                lista.add(p);
                 txtRes.append("ID: " + id + " | Producto: " + desc +
                                 " | Precio: " + precio + " | Stock: " + stock + "\n");
 
