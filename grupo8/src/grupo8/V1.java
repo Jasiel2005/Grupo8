@@ -53,51 +53,51 @@ public class V1 extends JFrame implements ActionListener {
 
         {
             lblNewLabel = new JLabel("ID");
-            lblNewLabel.setBounds(20, 10, 44, 12);
+            lblNewLabel.setBounds(21, 19, 44, 12);
             contentPane.add(lblNewLabel);
         }
         {
             lblNewLabel_1 = new JLabel("Producto");
-            lblNewLabel_1.setBounds(20, 32, 44, 12);
+            lblNewLabel_1.setBounds(21, 41, 44, 12);
             contentPane.add(lblNewLabel_1);
         }
         {
             lblNewLabel_2 = new JLabel("Precio");
-            lblNewLabel_2.setBounds(20, 54, 44, 12);
+            lblNewLabel_2.setBounds(21, 63, 44, 12);
             contentPane.add(lblNewLabel_2);
         }
         {
             lblNewLabel_3 = new JLabel("Stock");
-            lblNewLabel_3.setBounds(20, 76, 44, 12);
+            lblNewLabel_3.setBounds(21, 85, 44, 12);
             contentPane.add(lblNewLabel_3);
         }
         {
             txtId = new JTextField();
-            txtId.setBounds(83, 7, 96, 18);
+            txtId.setBounds(84, 16, 96, 18);
             contentPane.add(txtId);
             txtId.setColumns(10);
         }
         {
             txtProd = new JTextField();
-            txtProd.setBounds(83, 29, 96, 18);
+            txtProd.setBounds(84, 38, 96, 18);
             contentPane.add(txtProd);
             txtProd.setColumns(10);
         }
         {
             txtPrec = new JTextField();
-            txtPrec.setBounds(83, 51, 96, 18);
+            txtPrec.setBounds(84, 60, 96, 18);
             contentPane.add(txtPrec);
             txtPrec.setColumns(10);
         }
         {
             txtStock = new JTextField();
-            txtStock.setBounds(83, 73, 96, 18);
+            txtStock.setBounds(84, 82, 96, 18);
             contentPane.add(txtStock);
             txtStock.setColumns(10);
         }
         {
             btnInsertar = new JButton("Insertar");
-            btnInsertar.setBounds(207, 6, 84, 20);
+            btnInsertar.setBounds(208, 15, 84, 20);
             btnInsertar.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
                     try {
@@ -127,13 +127,13 @@ public class V1 extends JFrame implements ActionListener {
         {
             btnModificar = new JButton("Modificar");
             btnModificar.addActionListener(this);
-            btnModificar.setBounds(207, 28, 84, 20);
+            btnModificar.setBounds(208, 37, 84, 20);
             contentPane.add(btnModificar);
         }
         {
             btnEliminar = new JButton("Eliminar");
             btnEliminar.addActionListener(this);
-            btnEliminar.setBounds(207, 50, 84, 20);
+            btnEliminar.setBounds(208, 59, 84, 20);
             contentPane.add(btnEliminar);
         }
         {
