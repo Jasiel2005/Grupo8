@@ -35,5 +35,7 @@ public String getDescripcion() {
 public void setDescripcion(String descripcion) {
 	this.descripcion = descripcion;
 }
-
+public double calcular (int cantidad ) {
+	return this.precio*cantidad;
+}
 }
