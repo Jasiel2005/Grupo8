@@ -121,6 +121,7 @@ public class Venta extends JFrame {
                             break;
                         }
                     }
+                    
 
                     if (encontrado == null) {
                         txtResultado.setText("No encontrado");
